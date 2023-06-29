@@ -35,7 +35,7 @@ export const Layout = ({ children }) => {
   ];
   // Doctor Menu End
 
-  //redering menu list
+  // redering menu list
   const SidebarMenu = user?.isAdmin
     ? adminMenu
     : user?.isDoctor
@@ -90,6 +90,7 @@ export const Layout = ({ children }) => {
     </>
   );
 };
+
 
 
 export default Layout;

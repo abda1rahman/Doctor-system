@@ -15,30 +15,29 @@ export const Profile = () => {
   const params = useParams();
 
   // getDoctor Details
-    //getDOc Details
-    // const getDoctorInfo = async () => {
-    //   try {
-    //     const res = await axios.post(
-    //       "/api/v1/doctor/getDoctorInfo",
-    //       { userId: params.id },
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //         },
-    //       }
-    //     );
-    //     if (res.data.success) {
-    //       setDoctor(res.data.data);
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // };
+     const getDoctorInfo = async () => {
+      try {
+        const res = await axios.post(
+          "/api/v1/doctor/getDoctorInfo",
+          { userId: params.id },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        if (res.data.success) {
+          setDoctor(res.data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
   
-    // useEffect(() => {
-    //   getDoctorInfo();
+    useEffect(() => {
+      getDoctorInfo();
     //   //eslint-disable-next-line
-    // }, []);
+    }, []);
   return (
     <Layout>Profile</Layout>
   )
