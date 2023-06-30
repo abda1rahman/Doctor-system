@@ -21,26 +21,26 @@ const getDoctorInfoController = async (req, res) => {
 };
 
 // update doc profile
-// const updateProfileController = async (req, res) => {
-//   try {
-//     const doctor = await doctorModel.findOneAndUpdate(
-//       { userId: req.body.userId },
-//       req.body
-//     );
-//     res.status(201).send({
-//       success: true,
-//       message: "Doctor Profile Updated",
-//       data: doctor,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).send({
-//       success: false,
-//       message: "Doctor Profile Update issue",
-//       error,
-//     });
-//   }
-// };
+const updateProfileController = async (req, res) => {
+  try {
+    const doctor = await doctorModel.findOneAndUpdate(
+      { userId: req.body.userId },
+      req.body
+    );
+    res.status(201).send({
+      success: true,
+      message: "Doctor Profile Updated",
+      data: doctor,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Doctor Profile Update issue",
+      error,
+    });
+  }
+};
 
 // //get single docotor
 const getDoctorByIdController = async (req, res) => {
@@ -113,7 +113,7 @@ const getDoctorByIdController = async (req, res) => {
 
 module.exports = {
   getDoctorInfoController,
-  // updateProfileController,
+  updateProfileController,
   getDoctorByIdController,
   // doctorAppointmentsController,
 };
