@@ -6,7 +6,10 @@ const {
   applyDoctorController,
   getAllNotificationController,
   deleteAllNotificationController,
-  getAllDoctorController
+  getAllDoctorController,
+  bookAppointmentController,
+  bookingAvailabilityController,
+  userAppointmentsController,
 } = require("../controllers/userCtr");
 const authMiddleware = require("../middleware/authMiddleware");
 
@@ -24,13 +27,33 @@ router.post("/getUserData", authMiddleware, authController);
 //Apply Doctor || POST
 router.post("/apply-doctor", authMiddleware, applyDoctorController);
 
-//Notifiaction Doctor || POST 
-router.post("/get-all-notification", authMiddleware, getAllNotificationController)
+//Notifiaction Doctor || POST
+router.post(
+  "/get-all-notification",
+  authMiddleware,
+  getAllNotificationController
+);
 
-//Notifiaction Delete || POST 
-router.post("/delete-all-notification", authMiddleware, deleteAllNotificationController)
+//Notifiaction Delete || POST
+router.post(
+  "/delete-all-notification",
+  authMiddleware,
+  deleteAllNotificationController
+);
 
 //GET ALL DOCTOR
-router.get('/getAllDoctor', authMiddleware, getAllDoctorController)
+router.post("/getAllDoctor", authMiddleware, getAllDoctorController);
 
+// BOOK APPOINTMENT
+router.post("/book-appointment", authMiddleware, bookAppointmentController);
+
+// Booking Availability
+router.post(
+  "/booking-availability",
+  authMiddleware,
+  bookingAvailabilityController
+);
+
+//Appointments List
+router.get('/user-appointments', authMiddleware, userAppointmentsController)
 module.exports = router;

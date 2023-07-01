@@ -48,7 +48,7 @@ const getDoctorByIdController = async (req, res) => {
     const doctor = await doctorModel.findOne({ _id: req.body.doctorId });
     res.status(200).send({
       success: true,
-      message: "Sigle Doc Info Fetched",
+      message: "Sigle Doctor Info Fetched",
       data: doctor,
     });
   } catch (error) {
