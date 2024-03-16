@@ -10,6 +10,7 @@ import { GrSchedulePlay } from "react-icons/gr"; // Schedule
 export const doctorMenu = [
   {
     title: "Dashboard",
+    path: "/dashboard",
     icon: FaThLarge,
   },
   {
@@ -33,26 +34,32 @@ export const doctorMenu = [
 export const AdminMenu = [
     {
       title: "Dashboard",
-      path: "/",
+      path: "/dashboard",
       icon: FaThLarge,
     },
     {
       title: "Doctors",
-      path: "admin/doctors",
+      path: "/doctor/allDoctors",
+      icon: FaUserDoctor,
+    },
+    {
+      title: "Add Doctor",
+      path: "/doctor/addDoctor",
       icon: FaUserDoctor,
     },
     {
       title: "Users",
-      path: "admin/Users",
+      path: "/user/allUsers",
       icon: FaUsers,
     },
     {
       title: "Setting",
-      path: "admin/profile/",
+      path: "user/profile/:id",
       icon: IoSettingsOutline,
     },
     {
       title: "Logout",
+      path: "/logout",
       icon: LuLogOut,
     },
 ];

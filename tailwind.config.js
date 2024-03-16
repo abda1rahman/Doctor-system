@@ -4,15 +4,16 @@ export default {
     screens: {
       sm: "480px",
       md: "768px",
-      lg: "976px",
+      lg: "976px", // 976
       xl: "1440px",
     },
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        Inter: ["Inter", "sans-serif"],
       },
       colors: {
-        darkgray: "##bcbcbc",
+        darkgray: "rgba(245, 245, 245, 1)",
         purpulColor: "#7366FF",
         blueColor: "rgb(0, 116, 217)",
         lightblueColor: "rgb(235,240,253)",

@@ -1,20 +1,55 @@
-import { useState } from "react";
-
-import SideBar from "./components/SideBar";
-import NavBar from "./components/NavBar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
+import Dashboard from "./Pages/Dashboard";
+import DoctorProfile from "./Pages/DoctorProfile";
+import AllDoctor from "./Pages/AllDoctor";
+import AllUsers from "./Pages/AllUsers";
+import Profile from "./Pages/Profile";
+import AddDoctor from "./Pages/AddDoctor";
+import Error404 from "./components/Error404";
 
 function App() {
-  const [openMenu, setOpenMenu] = useState(false);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <Error404 />,
+      children: [
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
+        },
+        {
+          path: "/doctor",
+          element: <Dashboard />,
+        },
+        {
+          path: "/doctor/profile",
+          element: <DoctorProfile />,
+        },
+        {
+          path: "/doctor/allDoctors",
+          element: <AllDoctor />,
+        },
+        {
+          path: "/doctor/addDoctor",
+          element: <AddDoctor />,
+        },
+        {
+          path: "/user/allUsers",
+          element: <AllUsers />,
+        },
+        {
+          path: "/user/profile/:id",
+          element: <Profile />,
+        },
+      ],
+    },
+  ]);
 
-  function handleClick () {
-    setOpenMenu((open)=>!open) 
-  }
   return (
     <>
-      <div className='flex items-start'>
-        <SideBar openMenu={openMenu} />
-        <NavBar handleClick={handleClick} />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
