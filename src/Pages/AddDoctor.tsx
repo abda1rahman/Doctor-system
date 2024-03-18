@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import TitilePage from "../components/TitilePage";
+import Select from "../components/Select";
 
 interface ImageFile extends File {
   name: string;
@@ -25,6 +26,37 @@ function AddDoctor() {
   function handleSubmit(e: any) {
     e.preventDefault();
   }
+
+  const optionsCity = [
+    { value: "City", lable: "City" },
+    { value: "Amman", lable: "Amman" },
+    { value: "Zarqa", lable: "Zarqa" },
+    { value: "Irbid", lable: "Irbid" },
+    { value: "Aqaba", lable: "Aqaba" },
+    { value: "Al-Mafraq", lable: "Al-Mafraq" },
+    { value: "Maan", lable: "Maan" },
+    { value: "As-Salt", lable: "As-Salt" },
+    { value: "Jerash", lable: "Jerash" },
+  ];
+
+  const optionsDepartment = [
+    { value: "Department", lable: "Department" },
+    { value: "Eye", lable: "Eye" },
+    { value: "Gynecologist", lable: "Gynecologist" },
+    { value: "Psychotherapist", lable: "Psychotherapist" },
+    { value: "Orthopedic", lable: "Orthopedic" },
+    { value: "Dentist", lable: "Dentist" },
+    { value: "Gastrologist", lable: "Gastrologist" },
+    { value: "Urologist", lable: "Urologist" },
+    { value: "Neurologist", lable: "Neurologist" },
+  ];
+
+  const optionsGender = [
+    { value: "Gender", lable: "Gender" },
+    { value: "Male", lable: "Male" },
+    { value: "Female", lable: "Female" },
+  ];
+
   return (
     <>
       {/* Gloabal Container */}
@@ -109,39 +141,24 @@ function AddDoctor() {
                 />
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <select className='input-form' name='department'>
-                  <option className='' value=''>
-                    Departments
-                  </option>
-                  <option value='Eye'>Eye Care</option>
-                  <option value='Gynecologist'>Gynecologist</option>
-                  <option value='Psychotherapist'>Psychotherapist</option>
-                  <option value='Orthopedic'>Orthopedic</option>
-                  <option value='Dentist'>Dentist</option>
-                  <option value='Gastrologist'>Gastrologist</option>
-                  <option value='Urologist'>Urologist</option>
-                  <option value='Neurologist'>Neurologist</option>
-                </select>
+                <Select
+                  options={optionsDepartment}
+                  className='input-form'
+                  name='department'
+                />
 
-                <select className='input-form' name='gender'>
-                  <option value='Gender'>Gender</option>
-                  <option value='Male'>Male</option>
-                  <option value='Female'>Female</option>
-                </select>
+                <Select
+                  options={optionsGender}
+                  className='input-form'
+                  name='gender'
+                />
               </div>
-
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <select className='input-form' name='city'>
-                  <option value='City'>City</option>
-                  <option value='Amman'>Amman</option>
-                  <option value='Zarqa'>Zarqa</option>
-                  <option value='Irbid'>Irbid</option>
-                  <option value='Aqaba'>Aqaba</option>
-                  <option value='Al-Mafraq'>Al-Mafraq</option>
-                  <option value='Maan'>Maan</option>
-                  <option value='As-Salt'>As-Salt</option>
-                  <option value='Jerash'>Jerash</option>
-                </select>
+                <Select
+                  options={optionsCity}
+                  className='input-form'
+                  name='city'
+                />
                 <input
                   className='input-form'
                   type='text'
