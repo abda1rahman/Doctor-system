@@ -2,22 +2,27 @@ import React, { useRef, useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import TitilePage from "../components/TitilePage";
 
+interface ImageFile extends File {
+  name: string;
+}
+
 function AddDoctor() {
-  const inputRef = useRef(null);
-  const [image, setImage] = useState("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  //@ts-ignore
+  const [image, setImage] = useState<ImageFile | null>(null);
 
   // handle image
   function handleImageClick() {
-    inputRef.current.click();
+    inputRef.current?.click();
   }
 
-  function handleImageChange(e) {
+  function handleImageChange(e: any) {
     const file = e.target.files[0];
     setImage(file);
   }
 
   //handle submit
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     e.preventDefault();
   }
   return (
@@ -147,7 +152,7 @@ function AddDoctor() {
               <div className='flex flex-col gap-4 lg:flex-row'>
                 <textarea
                   className='w-full align-top rounded-md border pl-3 focus:outline-none focus:border-blueColor'
-                  rows='4'
+                  rows={4}
                   name='bio'
                   placeholder='Bio:'
                 />
