@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { AdminMenu, doctorMenu, FaThLarge, FaUserDoctor } from "../../data/sidebar";
 
 function SideBar({ openMenu }) {
-  console.log(doctorMenu);
   return (
     <>
       {/* Global Container */}

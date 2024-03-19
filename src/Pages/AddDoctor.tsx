@@ -2,6 +2,52 @@ import React, { useRef, useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import TitilePage from "../components/TitilePage";
 import Select from "../components/Select";
+import { Controller, useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
+import { Field } from "../components/Field";
+
+type FormValues = {
+  message?: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  address: string;
+  department: string;
+  gender: "male" | "female";
+  phone: string;
+  bio?: string;
+  city: string;
+};
+
+const optionsCity = [
+  { value: "City", lable: "City" },
+  { value: "Amman", lable: "Amman" },
+  { value: "Zarqa", lable: "Zarqa" },
+  { value: "Irbid", lable: "Irbid" },
+  { value: "Aqaba", lable: "Aqaba" },
+  { value: "Al-Mafraq", lable: "Al-Mafraq" },
+  { value: "Maan", lable: "Maan" },
+  { value: "As-Salt", lable: "As-Salt" },
+  { value: "Jerash", lable: "Jerash" },
+];
+
+const optionsDepartment = [
+  { value: "Department", lable: "Department" },
+  { value: "Eye", lable: "Eye" },
+  { value: "Gynecologist", lable: "Gynecologist" },
+  { value: "Psychotherapist", lable: "Psychotherapist" },
+  { value: "Orthopedic", lable: "Orthopedic" },
+  { value: "Dentist", lable: "Dentist" },
+  { value: "Gastrologist", lable: "Gastrologist" },
+  { value: "Urologist", lable: "Urologist" },
+  { value: "Neurologist", lable: "Neurologist" },
+];
+
+const optionsGender = [
+  { value: "Gender", lable: "Gender" },
+  { value: "Male", lable: "Male" },
+  { value: "Female", lable: "Female" },
+];
 
 interface ImageFile extends File {
   name: string;
@@ -9,8 +55,20 @@ interface ImageFile extends File {
 
 function AddDoctor() {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  //@ts-ignore
+
   const [image, setImage] = useState<ImageFile | null>(null);
+  const selectRef = useRef<HTMLSelectElement>(null); // Create a ref
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm<FormValues>();
+
+  function onSubmit(data: FormValues) {
+    console.log("form submit", data);
+  }
 
   // handle image
   function handleImageClick() {
@@ -21,41 +79,6 @@ function AddDoctor() {
     const file = e.target.files[0];
     setImage(file);
   }
-
-  //handle submit
-  function handleSubmit(e: any) {
-    e.preventDefault();
-  }
-
-  const optionsCity = [
-    { value: "City", lable: "City" },
-    { value: "Amman", lable: "Amman" },
-    { value: "Zarqa", lable: "Zarqa" },
-    { value: "Irbid", lable: "Irbid" },
-    { value: "Aqaba", lable: "Aqaba" },
-    { value: "Al-Mafraq", lable: "Al-Mafraq" },
-    { value: "Maan", lable: "Maan" },
-    { value: "As-Salt", lable: "As-Salt" },
-    { value: "Jerash", lable: "Jerash" },
-  ];
-
-  const optionsDepartment = [
-    { value: "Department", lable: "Department" },
-    { value: "Eye", lable: "Eye" },
-    { value: "Gynecologist", lable: "Gynecologist" },
-    { value: "Psychotherapist", lable: "Psychotherapist" },
-    { value: "Orthopedic", lable: "Orthopedic" },
-    { value: "Dentist", lable: "Dentist" },
-    { value: "Gastrologist", lable: "Gastrologist" },
-    { value: "Urologist", lable: "Urologist" },
-    { value: "Neurologist", lable: "Neurologist" },
-  ];
-
-  const optionsGender = [
-    { value: "Gender", lable: "Gender" },
-    { value: "Male", lable: "Male" },
-    { value: "Female", lable: "Female" },
-  ];
 
   return (
     <>
@@ -74,7 +97,7 @@ function AddDoctor() {
 
           {/* Main Section */}
           <div className='grid grid-row-2 md:gap-x-5 mt-6 gap-y-5 lg:grid-cols-3'>
-            {/* Image */}
+            {/* Image profile*/}
             <div className='bg-indigo-50 rounded-xl sm:mx-0 md:mx-auto'>
               <div onClick={handleImageClick}>
                 <input
@@ -84,6 +107,7 @@ function AddDoctor() {
                   accept='image/*'
                   hidden
                 />
+                {/* Image default profile */}
                 <div className='relative flex items-center justify-center '>
                   {image ? (
                     <img
@@ -110,74 +134,100 @@ function AddDoctor() {
             {/* Form */}
             <form
               className='flex flex-col mb-3 gap-4 row-span-2 lg:col-span-2 '
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <input
-                  className='input-form'
-                  type='text'
-                  name='firstname'
-                  placeholder='First Name'
-                />
-                <input
-                  className='input-form'
-                  type='text'
-                  name='lastname'
-                  placeholder='Last Name'
-                />
+                <Field error={errors} errorMessage={errors?.firstname?.message}>
+                  <input
+                    {...register("firstname", {
+                      required: "First Name is required",
+                    })}
+                    className='group input-form'
+                    type='text'
+                    placeholder='First Name'
+                  />
+                </Field>
+
+                <Field error={errors} errorMessage={errors?.lastname?.message}>
+                  <input
+                    {...register("lastname", {
+                      required: "Last Name is required",
+                    })}
+                    className='input-form'
+                    type='text'
+                    name='lastname'
+                    placeholder='Last Name'
+                  />
+                </Field>
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <input
-                  className='input-form'
-                  type='email'
-                  name='email'
-                  placeholder='Email'
-                />
-                <input
-                  className='input-form'
-                  type='tel'
-                  name='phone'
-                  placeholder='Phone'
-                />
+                <Field error={errors} errorMessage={errors?.email?.message}>
+                  <input
+                    {...register("email", {
+                      pattern: {
+                        value:
+                          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        message: "Invaild email format",
+                      },
+                      required: "Email is required",
+                    })}
+                    className='input-form'
+                    type='email'
+                    placeholder='Email'
+                  />
+                </Field>
+                <Field error={errors} errorMessage={errors?.phone?.message}>
+                  <input
+                    {...register("phone", {
+                      required: "phone is required",
+                    })}
+                    className='input-form'
+                    type='tel'
+                    placeholder='Phone'
+                  />
+                </Field>
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
                 <Select
+                  {...register("department", {required: "Department is required"})}
                   options={optionsDepartment}
                   className='input-form'
-                  name='department'
                 />
 
+                {/* <Field error={errors} errorMessage={errors?.gender?.message}> */}
                 <Select
+                  {...register("gender")}
                   options={optionsGender}
                   className='input-form'
-                  name='gender'
                 />
+                {/* </Field> */}
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
                 <Select
+                  {...register("city")}
                   options={optionsCity}
                   className='input-form'
-                  name='city'
                 />
                 <input
+                  {...register("address")}
                   className='input-form'
                   type='text'
-                  name='address'
                   placeholder='Address'
                 />
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
                 <textarea
+                  {...register("bio")}
                   className='w-full align-top rounded-md border pl-3 focus:outline-none focus:border-blueColor'
                   rows={4}
-                  name='bio'
                   placeholder='Bio:'
                 />
               </div>
-              <button className='self-end py-3 px-4 bg-blueColor font-semibold text-white rounded-lg hover:bg-opacity-90'>
+              <button className='self-start py-3 px-4 bg-blueColor font-semibold text-white rounded-lg hover:bg-opacity-90'>
                 Add Doctor
               </button>
             </form>
+            <DevTool control={control} />
           </div>
         </div>
       </section>
