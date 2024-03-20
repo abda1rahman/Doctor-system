@@ -188,26 +188,34 @@ function AddDoctor() {
                 </Field>
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <Select
-                  {...register("department", {required: "Department is required"})}
-                  options={optionsDepartment}
-                  className='input-form'
+                <Controller
+                  name='department'
+                  control={control}
+                  rules={{ required: "Department is required" }}
+                  render={({ field }) => (
+                    <Select
+                      error={errors}
+                      errorMessage={errors.department?.message}
+                      {...field}
+                      className='input-form'
+                      options={optionsDepartment}
+                    />
+                  )}
                 />
 
-                {/* <Field error={errors} errorMessage={errors?.gender?.message}> */}
-                <Select
+                {/* <Select
                   {...register("gender")}
                   options={optionsGender}
                   className='input-form'
-                />
+                /> */}
                 {/* </Field> */}
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
-                <Select
+                {/* <Select
                   {...register("city")}
                   options={optionsCity}
                   className='input-form'
-                />
+                /> */}
                 <input
                   {...register("address")}
                   className='input-form'

@@ -3,31 +3,31 @@ import React from "react";
 type SelectOptions = {
   value: string;
   lable: string;
+
 };
 
 type SelectProps = React.ComponentPropsWithRef<"select"> & {
   options: SelectOptions[];
-} 
-
-// const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-//   ({ options, register, className, ...rest }, forwardedRef) => {
-//     return (
-
-// function Select({ options, className, ...rest }, forwardRef: SelectProps) {
-//   return (
+  error: any;
+  errorMessage: string | undefined
+}
 
     const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-      ({ options, className, ...rest }, forwardedRef) => {
+      ({ options, className, error, errorMessage, ...rest }, forwardedRef) => {
         return (
-    <select {...rest} ref={forwardedRef} className={className}>
+          <>
+    <select {...rest} className={className}>
       {options.map((option, index) => (
         <option key={index} value={option.value}>
           {option.lable}
         </option>
       ))}
     </select>
+    {error && <span className='error'>{errorMessage}</span>}
+      </>
     );
   }
 );
 
 export default Select;
+
