@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import TitilePage from "../components/TitilePage";
 import Select from "../components/Select";
 import { Controller, useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Field } from "../components/Field";
 
 type FormValues = {
@@ -13,7 +12,7 @@ type FormValues = {
   lastname: string;
   address: string;
   department: string;
-  gender: "male" | "female";
+  gender: "male" | "female" | "Gender";
   phone: string;
   bio?: string;
   city: string;
@@ -57,18 +56,37 @@ function AddDoctor() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [image, setImage] = useState<ImageFile | null>(null);
-  const selectRef = useRef<HTMLSelectElement>(null); // Create a ref
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
     control,
-  } = useForm<FormValues>();
+    reset,
+  } = useForm<FormValues>({
+    defaultValues: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      department: "Department",
+      gender: "Gender",
+      phone: "",
+      address: "",
+      bio: "",
+    },
+  });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) reset();
+  }, [isSubmitSuccessful, reset]);
 
   function onSubmit(data: FormValues) {
     console.log("form submit", data);
   }
+
+  // function onError(errors: FieldErrors<FormValues>) {
+  //   console.log("Form errors", errors);
+  // }
 
   // handle image
   function handleImageClick() {
@@ -160,6 +178,7 @@ function AddDoctor() {
                   />
                 </Field>
               </div>
+
               <div className='flex flex-col gap-4 lg:flex-row'>
                 <Field error={errors} errorMessage={errors?.email?.message}>
                   <input
@@ -202,12 +221,20 @@ function AddDoctor() {
                     />
                   )}
                 />
-
-                {/* <Select
-                  {...register("gender")}
-                  options={optionsGender}
-                  className='input-form'
-                /> */}
+                <Controller
+                  name='gender'
+                  control={control}
+                  rules={{ required: "Gender is required" }}
+                  render={({ field }) => (
+                    <Select
+                      error={errors}
+                      errorMessage={errors.gender?.message}
+                      {...field}
+                      className='input-form'
+                      options={optionsGender}
+                    />
+                  )}
+                />
                 {/* </Field> */}
               </div>
               <div className='flex flex-col gap-4 lg:flex-row'>
@@ -231,11 +258,13 @@ function AddDoctor() {
                   placeholder='Bio:'
                 />
               </div>
-              <button className='self-start py-3 px-4 bg-blueColor font-semibold text-white rounded-lg hover:bg-opacity-90'>
+              <button
+                type='submit'
+                className='self-start py-3 px-4 bg-blueColor font-semibold text-white rounded-lg hover:bg-opacity-90 disabled:bg-opacity-80'
+              >
                 Add Doctor
               </button>
             </form>
-            <DevTool control={control} />
           </div>
         </div>
       </section>

@@ -1,0 +1,25 @@
+{
+  "cities": [
+    {
+      "id":1,
+      "cityName": "Almafraq",
+      "Country": "Jordan"
+    },
+    {
+      "id":2,
+      "cityName": "Amman",
+      "Country": "Jordan"
+    },
+    {
+      "id":3,
+      "cityName": "Maan",
+      "Country": "Jordan"
+    }
+  ],
+  "users": [
+    {
+      "id":1,
+      "email":"abd@gmail.com"
+    }
+  ]
+}
