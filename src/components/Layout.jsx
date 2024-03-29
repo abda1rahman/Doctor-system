@@ -13,12 +13,15 @@ function Layout() {
 
   return (
     // eslint-disable-next-line react/jsx-no-undef
-    <div className='flex font-Inter'>
-      <SideBar openMenu={openMenu} />
-      <div className='flex flex-col w-full'>
-        <NavBar handleClick={handleClick} />
-        <section className='bg-darkgray p-6 h-full'>
-          <Outlet />
+    <div className='flex max-h-screen flex-col font-Inter'>
+      <div className='grid grid-cols-[auto,1fr] overflow-auto flex-grow'>
+        <SideBar openMenu={openMenu} />
+        <section className='bg-darkgray overflow-auto'>
+          <NavBar handleClick={handleClick} />
+          {/* Children */}
+          <div className='p-6 overflow-auto '>
+            <Outlet />
+          </div>
         </section>
       </div>
     </div>

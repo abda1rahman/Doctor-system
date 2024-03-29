@@ -6,9 +6,9 @@ function NavBar({ handleClick }) {
   return (
     <>
       {/* Global Container */}
-      <nav className='bg-white w-full shadow-md '>
+      <nav className='bg-white shadow-sm top-0 sticky'>
         <section className='flex items-center justify-between px-6 h-[4.5rem]'>
-          {/* Icon */}
+          {/* Menu Icon */}
           <button
             onClick={handleClick}
             className='p-2 rounded-full bg-lightblueColor shadow-md shadow-indigo-200'

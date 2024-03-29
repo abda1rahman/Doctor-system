@@ -1,19 +1,24 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
-import { AdminMenu, doctorMenu, FaThLarge, FaUserDoctor } from "../../data/sidebar";
+import {
+  AdminMenu,
+  doctorMenu,
+  FaThLarge,
+  FaUserDoctor,
+} from "../../data/sidebar";
 
 function SideBar({ openMenu }) {
   return (
     <>
       {/* Global Container */}
-      <aside className='bg-white min-h-screen'>
+      <aside className=' sticky top-0 overflow-y-auto overflow-x-hidden scrollbar-hidden'>
         <section
-          className={`flex flex-col ${
+          className={`flex flex-col bg-white ${
             openMenu && "w-[15rem]"
           } w-20 duration-100 lg:w-[19rem]`}
         >
           {/* Logo */}
-          <div className='flex items-center justify-center w-full h-[4.5rem] bg-white shadow-sm z-10'>
+          <div className='flex sticky top-0 items-center justify-center h-[4.5rem] bg-white shadow-sm z-10'>
             {/* mobile image */}
             <img
               className={`w-12 p-2 ${openMenu && "hidden"} lg:hidden`}
@@ -29,7 +34,7 @@ function SideBar({ openMenu }) {
           </div>
           {/* Menu List */}
           <div
-            className={`flex flex-col text-iconColor mt-6 py-6 space-y-4 ${
+            className={`flex flex-col text-iconColor mt-5 py-6 space-y-4 ${
               openMenu ? "mx-0 px-3" : "mx-auto"
             } lg:px-3 lg:mx-0`}
           >
@@ -53,12 +58,20 @@ function SideBar({ openMenu }) {
                 </h4>
               </NavLink>
             ))}
-
           </div>
 
           {/* Image Bottom */}
-          <div className="w-44 h-44 self-center mt-10  hidden lg:block">
-            <img src="../../src/img/logo-sidebar-bottom.jpg" alt="" />
+          <div className='w-44 h-44 self-center mt-10  hidden lg:block'>
+            <img src='../../src/img/logo-sidebar-bottom.jpg' alt='' />
+          </div>
+          <div className='w-44 h-44 self-center mt-10  hidden lg:block'>
+            <img src='../../src/img/logo-sidebar-bottom.jpg' alt='' />
+          </div>
+          <div className='w-44 h-44 self-center mt-10  hidden lg:block'>
+            <img src='../../src/img/logo-sidebar-bottom.jpg' alt='' />
+          </div>
+          <div className='w-44 h-44 self-center mt-10  hidden lg:block'>
+            <img src='../../src/img/logo-sidebar-bottom.jpg' alt='' />
           </div>
         </section>
       </aside>

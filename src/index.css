@@ -16,3 +16,25 @@
 .error {
   @apply text-sm text-red-500 pt-2 ;
 }
+
+
+/* * {
+  scrollbar-width: thin;
+
+} */
+
+.scrollbar-hidden::-webkit-scrollbar {
+  @apply w-[5px]
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  /* @apply bg-iconBgColor rounded-full ; */
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  /* @apply bg-transparent; */
+}
+
+.scrollbar-hidden:hover::-webkit-scrollbar-thumb {
+  @apply bg-iconBgColor;
+}
