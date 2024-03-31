@@ -4,7 +4,7 @@ export default {
     screens: {
       sm: "480px",
       md: "768px",
-      lg: "976px", 
+      lg: "976px",
       xl: "1440px",
     },
     extend: {
@@ -21,8 +21,12 @@ export default {
         iconColor: "#7F7184",
         iconBgColor: "#EEEDEB",
         backColor: "#2b2b2a",
+        Secondary: "#8492A6"
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line no-undef
+    require('tailwindcss-debug-screens'),
+  ],
 };

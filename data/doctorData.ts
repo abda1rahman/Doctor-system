@@ -1,3 +1,5 @@
+
+// Form Data
 export const optionsCity = [
   { value: "City", lable: "City" },
   { value: "Amman", lable: "Amman" },
@@ -27,3 +29,5 @@ export const optionsGender = [
   { value: "Male", lable: "Male" },
   { value: "Female", lable: "Female" },
 ];
+// End Form Data
+

@@ -1,25 +1,159 @@
 {
   "cities": [
     {
-      "id":1,
+      "id": 1,
       "cityName": "Almafraq",
       "Country": "Jordan"
     },
     {
-      "id":2,
+      "id": 2,
       "cityName": "Amman",
       "Country": "Jordan"
     },
     {
-      "id":3,
+      "id": 3,
       "cityName": "Maan",
       "Country": "Jordan"
     }
   ],
   "users": [
     {
-      "id":1,
-      "email":"abd@gmail.com"
+      "id": 1,
+      "email": "abd@gmail.com"
+    }
+  ],
+  "doctors": [
+    {
+      "id": 1,
+      "firstname": "Ahmad",
+      "lastname": "Ali",
+      "email": "ahmad.ali@example.com",
+      "phone": "+9627801234567",
+      "gender": "male",
+      "address": "Amman, Jordan",
+      "department": "Eye",
+      "path": "https://i.pinimg.com/564x/bb/74/ba/bb74bae0879782206e5970e65efcfaa6.jpg",
+      "bio": "Dr. Ahmad Ali is an experienced ophthalmologist with a passion for improving vision and eye health."
+    },
+    {
+      "id": 2,
+      "firstname": "Layla",
+      "lastname": "Salem",
+      "email": "layla.salem@example.com",
+      "phone": "+9627802345678",
+      "gender": "female",
+      "address": "Irbid, Jordan",
+      "department": "Gynecologist",
+      "path": "https://i.pinimg.com/564x/6c/6e/d7/6c6ed7f4011b7f926b3f1505475aba16.jpg",
+      "bio": "Dr. Layla Salem specializes in women's health, providing compassionate care and expertise in gynecology."
+    },
+    {
+      "id": 3,
+      "firstname": "Omar",
+      "lastname": "Hassan",
+      "email": "omar.hassan@example.com",
+      "phone": "+9627803456789",
+      "gender": "male",
+      "address": "Zarqa, Jordan",
+      "department": "Psychotherapist",
+      "path": "https://i.pinimg.com/236x/b9/97/a5/b997a530822d0f2c03259070d4590d45.jpg",
+      "bio": "Dr. Omar Hassan is a skilled psychotherapist dedicated to helping individuals overcome mental health challenges and achieve well-being."
+    },
+    {
+      "id": 4,
+      "firstname": "Fatima",
+      "lastname": "Mahmoud",
+      "email": "fatima.mahmoud@example.com",
+      "phone": "+9627804567890",
+      "gender": "female",
+      "address": "Aqaba, Jordan",
+      "department": "Orthopedic",
+      "path": "https://i.pinimg.com/236x/32/bc/77/32bc774354119b490dcd508d22b0de51.jpg",
+      "bio": "Dr. Fatima Mahmoud specializes in orthopedic surgery, providing expert care for musculoskeletal injuries and disorders."
+    },
+    {
+      "id": 5,
+      "firstname": "Yousef",
+      "lastname": "Abdullah",
+      "email": "yousef.abdullah@example.com",
+      "phone": "+9627805678901",
+      "gender": "male",
+      "address": "Madaba, Jordan",
+      "department": "Dentist",
+      "path": "https://i.pinimg.com/236x/92/c5/a7/92c5a7746d9ce91484064580e94a39f7.jpg",
+      "bio": "Dr. Yousef Abdullah is a dedicated dentist committed to promoting oral health and delivering quality dental care."
+    },
+    {
+      "id": 6,
+      "firstname": "Rana",
+      "lastname": "Khalil",
+      "email": "rana.khalil@example.com",
+      "phone": "+9627806789012",
+      "gender": "female",
+      "address": "Jerash, Jordan",
+      "department": "Gastrologist",
+      "path": "https://i.pinimg.com/236x/e3/18/d5/e318d52370cd99c920b0b05dd14c4ac3.jpg",
+      "bio": "Dr. Rana Khalil specializes in gastroenterology, focusing on digestive health and gastrointestinal disorders."
+    },
+    {
+      "id": 7,
+      "firstname": "Ali",
+      "lastname": "Rahman",
+      "email": "ali.rahman@example.com",
+      "phone": "+9627807890123",
+      "gender": "male",
+      "address": "Mafraq, Jordan",
+      "department": "Urologist",
+      "path": "https://i.pinimg.com/236x/c2/db/2d/c2db2da630a1d117a3e1297ed7fd9b96.jpg",
+      "bio": "Dr. Ali Rahman is an expert in urology, providing comprehensive care for urinary tract and reproductive system conditions."
+    },
+    {
+      "id": 8,
+      "firstname": "Nour",
+      "lastname": "Adnan",
+      "email": "nour.adnan@example.com",
+      "phone": "+9627808901234",
+      "gender": "female",
+      "address": "Tafilah, Jordan",
+      "department": "Neurologist",
+      "path": "https://i.pinimg.com/236x/2f/57/34/2f5734fc27ecde396f85f7aa9aba0a04.jpg",
+      "bio": "Dr. Nour Adnan specializes in neurology, focusing on the diagnosis and treatment of neurological disorders."
+    },
+    {
+      "id": 9,
+      "firstname": "Majed",
+      "lastname": "Hadi",
+      "email": "majed.hadi@example.com",
+      "phone": "+9627810123456",
+      "gender": "male",
+      "address": "Ma'an, Jordan",
+      "department": "Eye",
+      "path": "https://i.pinimg.com/236x/af/22/a9/af22a948a6bb70d0d1a38dae72c3a276.jpg",
+      "bio": "Dr. Majed Hadi is a skilled ophthalmologist dedicated to preserving and improving vision through advanced treatments."
+    },
+    {
+      "id": 10,
+      "firstname": "Sara",
+      "lastname": "Khaled",
+      "email": "sara.khaled@example.com",
+      "phone": "+9627811234567",
+      "gender": "female",
+      "address": "Ajloun, Jordan",
+      "department": "Gynecologist",
+      "path": "https://i.pinimg.com/236x/9c/b7/f7/9cb7f7ccb2d17d5a1a138d3904d00285.jpg",
+      "bio": "Dr. Sara Khaled provides comprehensive gynecological care with a focus on women's reproductive health and wellness."
+    },
+    {
+      "id": 11,
+      "firstname": "Hassan",
+      "lastname": "Ali",
+      "email": "hassan.ali@example.com",
+      "phone": "+9627812345678",
+      "gender": "male",
+      "address": "Amman, Jordan",
+      "department": "Psychotherapist",
+      "path": "https://i.pinimg.com/236x/14/cb/53/14cb53b8325764d8d387005ff8e4150c.jpg",
+      "bio": "Dr. Hassan Ali is a compassionate psychotherapist committed to helping individuals overcome mental health challenges and achieve personal growth."
     }
   ]
 }

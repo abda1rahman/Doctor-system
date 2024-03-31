@@ -4,7 +4,11 @@ import TitilePage from "../components/TitilePage";
 import Select from "../components/Select";
 import { Controller, useForm } from "react-hook-form";
 import { Field } from "../components/Field";
-import {optionsCity, optionsDepartment, optionsGender , } from "../../data/doctorData"
+import {
+  optionsCity,
+  optionsDepartment,
+  optionsGender,
+} from "../../data/doctorData";
 
 type FormValues = {
   message?: string;
@@ -19,8 +23,6 @@ type FormValues = {
   city: string;
 };
 
-
-
 interface ImageFile extends File {
   name: string;
 }
@@ -28,7 +30,7 @@ interface ImageFile extends File {
 function AddDoctor() {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const [image, setImage] = useState<File | undefined >(undefined);
+  const [image, setImage] = useState<File | undefined>(undefined);
   console.log(image);
   const {
     register,
@@ -178,7 +180,7 @@ function AddDoctor() {
                   />
                 </Field>
               </div>
-              <div className='flex flex-col gap-4 lg:flex-row'>
+              <div className='flex flex-col gap-2 lg:flex-row'>
                 <Controller
                   name='department'
                   control={control}
@@ -188,7 +190,7 @@ function AddDoctor() {
                       error={errors}
                       errorMessage={errors.department?.message}
                       {...field}
-                      className='input-form'
+                      className='input-form '
                       options={optionsDepartment}
                     />
                   )}
