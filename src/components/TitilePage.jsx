@@ -2,10 +2,6 @@
 import React from "react";
 
 function TitilePage({ children }) {
-  return (
-    <div className=''>
-      <h1 className='text-xl mt-1 mb-6 ml-1 font-semibold'>{children}</h1>
-    </div>
-  );
+  return <h1 className='text-xl mt-1 mb-6 ml-1 font-semibold'>{children}</h1>;
 }
 export default TitilePage;

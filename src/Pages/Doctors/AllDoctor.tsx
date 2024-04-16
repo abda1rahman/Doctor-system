@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import TitilePage from "../../components/TitilePage";
+import { Link } from "react-router-dom";
 
 interface Doctors {
   id: string;
@@ -43,7 +44,7 @@ function AllDoctor() {
 
 function CardDoctor({ firstname, lastname, department, path }: any) {
   return (
-    <div className='group flex flex-col max-w-[17rem] mx-auto  rounded-lg flex-shrink-0'>
+    <Link to="/doctor/profile" className='group cursor-pointer flex flex-col max-w-[17rem] mx-auto  rounded-lg flex-shrink-0'>
       <div className=' overflow-hidden rounded-t-lg aspect-square'>
         <img
           className='flex justify-center items-center   
@@ -60,7 +61,7 @@ function CardDoctor({ firstname, lastname, department, path }: any) {
           {department}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 

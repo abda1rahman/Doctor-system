@@ -17,11 +17,12 @@ export default {
         purpulColor: "#7366FF",
         blueColor: "rgb(0, 116, 217)",
         lightblueColor: "rgb(235,240,253)",
+        shadowColor: "rgb(199 210 254)",
         redColor: "#rgb(220,53,69)",
         iconColor: "#7F7184",
         iconBgColor: "#EEEDEB",
         backColor: "#2b2b2a",
-        Secondary: "#8492A6",
+        Secondary: "#8492A6", // text-secondary
       },
     },
   },

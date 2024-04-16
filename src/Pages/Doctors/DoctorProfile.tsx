@@ -4,18 +4,14 @@ import Tab from "@mui/material/Tab";
 
 import { useState, useEffect } from "react";
 import TitilePage from "../../components/TitilePage";
-import { Tabs } from "@mui/material";
+import { Rating, Tabs } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@material-ui/lab";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import AddDoctor from "../../components/Doctors/AddDoctor";
 import OverView from "../../components/Doctors/OverView";
 
-interface MyTabsProps {
-  value: string;
-}
-
 function DoctorProfile(): ReactJSXElement {
-  const [value, setValue] = useState("1");
+  const [tab, setTab] = useState("1");
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -33,7 +29,7 @@ function DoctorProfile(): ReactJSXElement {
     event: React.SyntheticEvent<unknown>,
     newValue: string
   ) => {
-    setValue(newValue);
+    setTab(newValue);
   };
 
   function a11yProps(index: number) {
@@ -60,7 +56,7 @@ function DoctorProfile(): ReactJSXElement {
           <div className='flex flex-col justify-between gap-1 '>
             <h2>Dr. Michael Sullivan</h2>
             <p className='text-Secondary text-sm'>Endocrinologist</p>
-            <p>rate</p>
+            <Rating name='read-only' value={4} readOnly />
           </div>
         </div>
         <button
@@ -73,7 +69,7 @@ function DoctorProfile(): ReactJSXElement {
 
       <div className='bg-white rounded-lg overflow-hidden '>
         <Box sx={{ width: "100%", typography: "Poppins" }}>
-          <TabContext value={value}>
+          <TabContext value={tab}>
             <Box
               sx={{
                 borderBottom: 1,
@@ -82,7 +78,7 @@ function DoctorProfile(): ReactJSXElement {
             >
               <Tabs
                 orientation={width < 360 ? "vertical" : "horizontal"}
-                value={value}
+                value={tab}
                 TabIndicatorProps={{
                   style: {
                     backgroundColor: "transparent",
