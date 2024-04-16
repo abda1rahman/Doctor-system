@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Dashboard from "./Pages/Dashboard";
-import DoctorProfile from "./Pages/DoctorProfile";
-import AllDoctor from "./Pages/AllDoctor";
-import AllUsers from "./Pages/AllUsers";
+import AllDoctor from "./Pages/Doctors/AllDoctor";
+import AllUsers from "./Pages/Users/AllUsers";
 import Profile from "./Pages/Profile";
-import AddDoctor from "./Pages/AddDoctor";
 import Error404 from "./components/Error404";
+import DoctorProfile from "./Pages/Doctors/DoctorProfile";
+import NewDoctor from "./Pages/Doctors/NewDoctor";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,7 +33,7 @@ function App() {
         },
         {
           path: "/doctor/addDoctor",
-          element: <AddDoctor />,
+          element: <NewDoctor />,
         },
         {
           path: "/user/allUsers",

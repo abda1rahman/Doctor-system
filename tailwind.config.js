@@ -21,12 +21,12 @@ export default {
         iconColor: "#7F7184",
         iconBgColor: "#EEEDEB",
         backColor: "#2b2b2a",
-        Secondary: "#8492A6"
+        Secondary: "#8492A6",
       },
     },
   },
   plugins: [
     // eslint-disable-next-line no-undef
-    require('tailwindcss-debug-screens'),
+    require("tailwindcss-debug-screens"),
   ],
 };

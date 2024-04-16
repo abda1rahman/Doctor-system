@@ -48,6 +48,11 @@ export const AdminMenu = [
       icon: FaUserDoctor,
     },
     {
+      title: "Profile",
+      path: "/doctor/profile",
+      icon: FaUserDoctor,
+    },
+    {
       title: "Users",
       path: "/user/allUsers",
       icon: FaUsers,

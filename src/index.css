@@ -14,7 +14,7 @@
 
 /* Page Add Doctor */
 .input-form {
-  @apply w-full py-4 rounded-md border pl-3 focus:outline-none focus:border-blueColor self-start;
+  @apply w-full py-4 rounded-md border pl-3 focus:outline-none focus:border-blueColor ;
 }
 
 h2 {

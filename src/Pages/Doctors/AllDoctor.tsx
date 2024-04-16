@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TitilePage from "../components/TitilePage";
+import TitilePage from "../../components/TitilePage";
 
 interface Doctors {
   id: string;
