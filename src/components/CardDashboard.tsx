@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode} from "react";
 
 interface CardDashboardProps {
   item: {
@@ -9,8 +9,10 @@ interface CardDashboardProps {
 }
 
 function CardDashboard({ item: { icon, title, count } }: CardDashboardProps) {
+
+
   return (
-    <div className='flex flex-grow flex-shrink-0 justify-start gap-4 bg-white py-8 px-6 rounded-lg shadow-sm shadow-zinc-200'>
+    <div className='flex flex-grow flex-shrink-0 justify-start gap-4 bg-white py-8 px-6 rounded-lg shadow-sm shadow-shadowDark'>
       <div className='bg-lightblueColor rounded-lg text-blueColor text-3xl p-[15px]'>
         {icon}
       </div>

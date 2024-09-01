@@ -17,6 +17,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "chart.js": "^4.4.2",
     "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

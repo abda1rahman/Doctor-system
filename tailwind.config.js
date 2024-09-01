@@ -22,6 +22,7 @@ export default {
         iconColor: "#7F7184",
         iconBgColor: "#EEEDEB",
         backColor: "#2b2b2a",
+        shadowDark: "#e4e4e7",
         Secondary: "#8492A6", // text-secondary
       },
     },

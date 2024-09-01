@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
 import TitilePage from "../../components/TitilePage";
 import { Link } from "react-router-dom";
+import { Doctors } from "../../components/type";
 
-interface Doctors {
-  id: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  phone: string;
-  gender: string;
-  address: string;
-  department: string;
-  bio: string;
-  path: string;
-}
+
 
 function AllDoctor() {
   const [doctors, setDoctors] = useState<Doctors[]>([]);
